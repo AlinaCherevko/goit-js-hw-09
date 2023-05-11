@@ -18,13 +18,13 @@ timerEl.style.gap = '20px';
 timerEl.style.justifyContent = 'center';
 timerEl.style.marginTop = '20px';
 
-fieldEl.style.textAlign = 'center';
-fieldEl.style.margin = '0 10px';
+// fieldEl.style.textAlign = 'center';
+// fieldEl.style.margin = '0 10px';
 
-valueEl.style.display = 'block';
-valueEl.style.fontSize = '40px';
-valueEl.style.fontWeight = 'bold';
-valueEl.style.color = '#789966';
+// valueEl.style.display = 'block';
+// valueEl.style.fontSize = '40px';
+// valueEl.style.fontWeight = 'bold';
+// valueEl.style.color = '#789966';
 
 let selectedDate = 0;
 let timer = null;

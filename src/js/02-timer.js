@@ -10,21 +10,11 @@ const hoursValue = document.querySelector('[data-hours]');
 const minutesValue = document.querySelector('[data-minutes]');
 const secondsValue = document.querySelector('[data-seconds]');
 const timerEl = document.querySelector('.timer');
-const fieldEl = document.querySelectorAll('.field');
-const valueEl = document.querySelectorAll('.value');
 
 timerEl.style.display = 'flex';
-timerEl.style.gap = '20px';
+timerEl.style.gap = '30px';
 timerEl.style.justifyContent = 'center';
-timerEl.style.marginTop = '20px';
-
-// fieldEl.style.textAlign = 'center';
-// fieldEl.style.margin = '0 10px';
-
-// valueEl.style.display = 'block';
-// valueEl.style.fontSize = '40px';
-// valueEl.style.fontWeight = 'bold';
-// valueEl.style.color = '#789966';
+timerEl.style.marginTop = '100px';
 
 let selectedDate = 0;
 let timer = null;

@@ -8,8 +8,10 @@ refs.startBtn.addEventListener('click', event => {
   timerId = setInterval(() => {
     refs.bodyEl.style.backgroundColor = getRandomHexColor();
   }, 1000);
-  event.target.setAttribute('disabled', true);
-  refs.closeBtn.removeAttribute('disabled');
+  disableButton(refs.startBtn);
+  enableButton(refs.closeBtn);
+  // event.target.setAttribute('disabled', true);
+  // refs.closeBtn.removeAttribute('disabled');
 });
 
 function getRandomHexColor() {
@@ -20,6 +22,15 @@ function getRandomHexColor() {
 
 refs.closeBtn.addEventListener('click', event => {
   clearInterval(timerId);
-  event.target.setAttribute('disabled', true);
-  refs.startBtn.removeAttribute('disabled');
+  disableButton(refs.closeBtn);
+  enableButton(refs.startBtn);
+  // event.target.setAttribute('disabled', true);
+  // refs.startBtn.removeAttribute('disabled');
 });
+function disableButton(btn) {
+  btn.setAttribute('disabled', true);
+}
+
+function enableButton(btn) {
+  btn.removeAttribute('disabled');
+}

@@ -28,33 +28,39 @@ const options = {
     // ств.довільну вибрану дату та поточну дату
     selectedDate = selectedDates[0].getTime();
     // console.log('це вибрана дата', selectedDate);
-    const currentDate = new Date().getTime();
-    // console.log('це поточна дата', currentDate);
+    const currentDate = Date.now();
+
+    console.log('це поточна дата', currentDate);
     if (selectedDate < currentDate) {
       window.alert('Please choose a date in the future');
       startBtn.setAttribute('disabled', true);
     } else {
       startBtn.removeAttribute('disabled');
-      startBtn.addEventListener('click', startCountdown());
     }
   },
 };
 flatpickr(inputEl, options);
+startBtn.addEventListener('click', startCountdown);
 
 function startCountdown(selectedDates) {
   startBtn.setAttribute('disabled', true);
 
   timer = setInterval(() => {
-    const currentDate = new Date().getTime();
+    const currentDate = Date.now();
 
     const timeDifference = selectedDate - currentDate;
     const { days, hours, minutes, seconds } = convertMs(timeDifference);
     // console.log(`${days}:${hours}:${minutes}:${seconds}`);
     updateTimerValues(days, hours, minutes, seconds);
+    if (timeDifference <= 0) {
+      clearInterval(timer);
+      updateTimerValues('00', '00', '00', '00');
+      // daysValue.textContent = '00';
+      // hoursValue.textContent = '00';
+      // minutesValue.textContent = '00';
+      // secondsValue.textContent = '00';
+    }
   }, 1000);
-  if (timeDifference === 0) {
-    clearInterval(timer);
-  }
 }
 
 function addLeadingZero(value) {
